@@ -1,0 +1,27 @@
+# 依赖目录
+node_modules/
+
+# 环境变量文件
+.env
+
+# 系统文件
+.DS_Store
+
+# 日志文件
+*.log
+
+# IDE配置文件
+.idea/
+.vscode/
+
+# 本地开发文件
+*.local
+
+# 调试文件
+*.pid
+*.seed
+
+# 编译文件
+*.exe
+*.out
+*.app
