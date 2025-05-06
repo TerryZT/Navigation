@@ -1,6 +1,6 @@
 {
   "name": "navigation",
-  "version": 2,
+  "version": 3,
   "builds": [
     { "src": "*.html", "use": "@vercel/static" },
     { "src": "*.css", "use": "@vercel/static" },
@@ -10,7 +10,7 @@
   "env": {
     "MONGODB_URI": "@mongodb-uri"
   },
-  "routes": [
+  "rewrites": [
     { "src": "/api/(.*)", "dest": "/api/$1" },
     { "src": "/(.*)", "dest": "/$1" }
   ]
