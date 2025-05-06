@@ -1,17 +1,28 @@
 {
   "name": "navigation",
-  "version": 3,
+  "version": 2,
   "builds": [
     { "src": "*.html", "use": "@vercel/static" },
     { "src": "*.css", "use": "@vercel/static" },
-    { "src": "*.js", "use": "@vercel/node" },
+    { "src": "*.js", "use": "@vercel/static" },
     { "src": "icons/*.svg", "use": "@vercel/static" }
   ],
   "env": {
     "MONGODB_URI": "@mongodb-uri"
   },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
   "rewrites": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/(.*)", "dest": "/$1" }
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/(.*)", "destination": "/$1" }
   ]
 }
